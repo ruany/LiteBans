@@ -1,0 +1,207 @@
+time_format: YYYY-MM-dd
+history_time_format: YYYY-MM-dd
+banned_message_base: |
+  &cHas sido Baneado de este servidor!&f
+
+  Banned on: $bannedFrom
+  Banned by: $displayName
+  Reason: $reason&f
+banned_message: |-
+  $base
+  Expira en: $banTimeLeft
+  $appealMessage
+banned_message_permanent: |-
+  $base
+  Has sido baneado permanentemente!
+  $appealMessage
+banned_message_appeal_message: 'Apelaciones A: &nhttp://example.com'
+banned_message_geoip_blacklist: |-
+  &cHas sido Baneado de este servidor!&f
+
+  Your location is blacklisted:  $geoip
+default_ban_reason: Has sido baneado por mal comportamiento!
+default_mute_reason: Hacer spam
+permission_error: '&cNo tienes permisos!'
+muted: '&cEstas muteado! ($duration remaining)!'
+muted_permanent: '&cEstas muteado permanentemente!'
+notify:
+  banned_player_join: '&c$player&f ha intentado entrar, pero esta baneado durante ($duration)!'
+  banned_geoip_blacklist: '&c$player&f ha intentado entrar, pero su IP esta en la lista negra ($geoip)!'
+error_no_sql_connection: '&cLiteBans no esta conectado a una base de datos!'
+internal_error: '&cAn internal error occurred while attempting to perform this command.'
+duration_limit_error: '&cDuracion maxima permitida: $duration'
+warned_join: '&cTienes nuevos avisos:'
+warned_join_entry: |-
+  &4 - Avisado por &c$displayName&4: &c$reason
+     &4(&c$timeSince ago&4)
+command:
+  ban:
+    usage: '&cUsa: /ban [-s] <jugador> [tiempo] [razon]'
+    unban_usage: '&cUsa: /unban <jugador>'
+    example: '&cEjemplo: /ban Notch 7d [razon]'
+    silent_prefix: '&f[&7Silenciado&f] '
+    broadcast_ban: '&a$banningPlayer &fbanned &a$bannedPlayer &fpor ''&a$reason&f'''
+    broadcast_tempban: '&a$banningPlayer &ftempbanned &a$bannedPlayer &fdurante $tempDuration
+      por  ''&a$reason&f'''
+    broadcast_ip_ban: '&a$banningPlayer &fIP-Ban &a$bannedPlayer &fpor ''&a$reason&f'''
+    broadcast_temp_ip_ban: '&a$banningPlayer &fIP-Ban temporal &a$bannedIP &fdurante $tempDuration
+      por ''&a$reason&f'''
+    broadcast_ip_ban_hidden: '[IP Oculta]'
+    broadcast_unban: '&a$displayName &fDesbaneo a &a$bannedPlayer'
+    previous_ban_removed: '&aEl Ban previo de $bannedPlayer ha sido borrado.'
+    previous_ban_existing: '&c$bannedPlayer ya esta Baneado, y no tienes permiso para reemplazar baneos existentes.'
+    unban_queue: '&6Si vuelves a tratar de entrar, seras desbaneado.'
+    error_no_spec: '&cTiempo especificado no valido!'
+    unban_fail: '&cNo esta baneado!'
+    exempt: '&cNo se puede banear a $player!'
+    broadcast_unmute: '&a$displayName &fdesmuteo a &a$bannedPlayer'
+  mute:
+    usage: '&cUsa: /mute [-s] <jugador> [tiempo] [razon]'
+    unmute_usage: '&cUsa: /unmute <jugador>'
+    example: '&cEjemplo: /mute Notch 7d [razon]'
+    broadcast: '&a$displayName &fmuteo a &a$mutedPlayer &fpor ''&a$reason&f'''
+    broadcast_tempmute: '&a$displayName &fmuteo temporalmente a &a$mutedPlayer &fdurante $tempDuration
+      por ''&a$reason&f'''
+    unmute_fail: '&cNo esta muteado!'
+    previous_mute_removed: '&aEl mute previo de $mutedPlayer ha sido quitado.'
+    previous_mute_existing: '&c$mutedPlayer ya esta muteado, y no tienes permisos de reemplazar muteos existentes.'
+    exempt: '&cNo puedes mutear a $player!'
+    error_not_enabled: '&cEl muteo no esta activado en la configuracion!'
+    notification: '&c$mutedPlayer intento hablar, Pero esta silenciado.'
+  warn:
+    usage: '&cUsa: /warn [-s] <jugador> [razon]'
+    unwarn_usage: '&cUsa: /unwarn <jugador>'
+    example: ''
+    broadcast: '&a$displayName &fAviso a &a$warnedPlayer &fPor ''&a$reason&f'''
+    message: |-
+      &4Tienes un aviso De $displayName&4 Por &c'&4$reason&c'&4.
+      Este aviso se borrara en $duration.
+    list_entry: ' \- Avisado por $displayName: ''$reason&f'' ($timeSince ago)'
+    unwarn_response: '&aEl ultimo aviso ha sido borrado por $player.'
+    unwarn_fail: '&cNo se a podido quitar el aviso!'
+    exempt: '&cNo puedes avisar a $player!'
+    cooldown: '&cNecesitas esperar $seconds segundos antes de poder Avisar de nuevo.'
+  history:
+    usage: '&c/history <jugador> [entries=10]'
+    start: '&aHistory for $target (Limit: $limit):'
+    ban_entry: |-
+      &a -- [&f$timeSince hace&a] --&f
+       $name ha sido &cBaneado &fpor $displayName: '&a$reason&f'
+    mute_entry: |-
+      &a -- [&f$timeSince hace&a] --&f
+       $name ha sido &7Muteado &fpor $displayName: '&a$reason&f'
+    warn_entry: |-
+      &a -- [&f$timeSince hace&a] --&f
+       $name ha sido &6Avisado &fpor $displayName: '&a$reason&f'
+    kick_entry: |-
+      &a -- [&f$timeSince hace&a] --&f
+       $name ha sido &eKickeado &fpor $displayName: '&a$reason&f'
+    active_suffix: '&f [&cActive&f]'
+    active_suffix_temp: |-
+      &f [&cActivo&f]
+      Expira en $duration.
+    error_no_history: '&cNo hay historial.'
+  warnings:
+    usage: '&c/warnings <jugador>'
+    start: '&aAdvertencias activas para $target:'
+  prunehistory:
+    usage: '&c/prunehistory <jugador> [duracion]'
+    message: '&aHistorial borrado.'
+  staffhistory:
+    usage: '&c/staffhistory <jugador> [entries=10]'
+    start: '&aHistorial del Staff $target (Limit: $limit):'
+  staffrollback:
+    usage: '&c/staffrollback <jugador> [duration]'
+    message: '&aRollback completado, entradas totales borradas: $amount'
+  banlist:
+    start: '&f=== &aPagina &6$pagina&a fuera de &6$total&f ==='
+  iphistory:
+    usage: '&c/iphistory <jugador> [entries=10]'
+    start: '&aHistorial de logueos $target (Limit: $limit):'
+    entry: '&a - [&f$date&a]&f $name&a:&f $ip'
+    error_no_history: '&cHistorial no encontrado.'
+  dupeip:
+    usage: '&c/dupeip <jugador>'
+    start: '&fEscaneando &7$name&f on &a$ip&f. &f[&aConectado&f] [&7Desconectado&f] [&cBaneado&f]'
+    separator: '&f, '
+    online: '&a'
+    offline: '&7'
+    banned: '&c'
+    multiple_addresses: '[$num addresses]'
+  ipreport:
+    start: '&fScanning &a$num&f jugadores online.. [&aOnline&f] [&7Offline&f] [&cBanned&f]'
+    entry: '&f$player&a: $result'
+  checkban:
+    usage: '&c/checkban <player>'
+    no_ban: '&cEl jugador no esta baneado!'
+    banned: |-
+      &aJugador &f[&a$target&f]&a esta baneado:
+      Baneado por: $displayName
+      Razon: $reason&a
+      Baneado en: $bannedFrom
+      Duracion del baneo: $bannedUntil ($banTimeLeft)
+      IP ban: $ipban, silenciado: $silent, permanente: $permanent
+  lastuuid:
+    usage: '&c/lastuuid <jugador|IP>'
+    message: '&fUltima UUID de &a$name&f: &a$uuid'
+  geoip:
+    usage: '&c/geoip <jugador|IP>'
+    message: '&a$target&f is from: &a$result'
+    error_disabled: '&cGeoIP no esta activado en la configuracion!'
+    error_unavailable: '&cGeoIP no esta disponible, Esta descargado?
+      yet?'
+    error_not_found: '&cGeoIP informacion de $target no encontrada.'
+  lockdown:
+    usage: '&c/lockdown <razon> | /lockdown end'
+    message: '&cEl servidor esta bloqueado (razon: "$reason&c")'
+    stopped: '&aEl bloqueo esta desactivado.'
+    kick_message: |-
+      El servidor tiene la entrada bloqueada, intenta entrar mas tarde o contacta con el soporte del servidor http://example.com .
+      Razon: $reason
+    error_not_active: '&cEl bloque no esta activo!'
+  kick:
+    usage: '&c/kick <jugador> [razon]'
+    no_match: '&cError: &4Jugador no encontrado.'
+    message: 'Kickeado por $displayName: $reason'
+    message_no_reason: Kickeado por $displayName.
+    response: '&6$player ha sido kickeado.'
+    broadcast: '&a$player&f ha sido kickeado por &a$displayName&f por ''&a$reason&f''.'
+    broadcast_no_reason: '&a$player&f ha sido kickeado por &a$displayName&f.'
+    exempt: '&cNo puedes kickear a $player!'
+  togglechat:
+    toggle_off: '&aEl CHAT global se ha desactivado.'
+    toggle_on: '&aEl CHAT global se ha activado.'
+  clearchat:
+    broadcast: '&aChat borrado por $displayName.'
+  litebans:
+    reload_success: '&aLiteBans Recargado correctamente.'
+    reload_fail_connect: '&aLitebans recargado. &cImposible conectar con la base de datos.'
+    add_history_usage: '&c/litebans addhistory <name> <UUID> <IP>'
+    add_history: '&aHistorial añadido.'
+    fix_history: '&aArreglando historial de $table...'
+    fix_history_result: '&aAñadido $amount entradas.'
+    import_usage: '&c/litebans import start'
+    import_start: '&aImportando de $db, Este proceso tardara unos minutos...'
+    import_finish: '&aLa importacion ha sido completada. $bans baneos han sido importados, $ipbans IP-bans.'
+    import_finish_litebans: '&aImportacion terminada correctamente. Añadidas $amount entradas
+      to the database.'
+    import_fail: '&cImportacion fallida. Mira la consola.'
+    import_unsupported: '&cImporting from ''$name'' is not supported yet!'
+    sqlexec_success: '&aSQL query executed successfully.'
+    sqlexec_failure: '&cError al ejecutar.'
+duration:
+  forever: siempre
+  year: "a\xc3\xb1o"
+  years: "a\xc3\xb1os"
+  month: mes
+  months: meses
+  week: semana
+  weeks: semanas
+  day: dia
+  days: dias
+  hour: hora
+  hours: horas
+  minute: minuto
+  minutes: minutos
+  second: segundo
+  seconds: segundos
