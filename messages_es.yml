@@ -1,6 +1,6 @@
 # Translated by Alpacraft.com
-time_format: YYYY-MM-dd
-history_time_format: YYYY-MM-dd
+time_format: yyyy-MM-dd
+history_time_format: yyyy-MM-dd
 banned_message_base: |
   &cHas sido Baneado de este servidor!&f
 
