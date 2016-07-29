@@ -1,5 +1,5 @@
-time_format: YYYY-MM-dd
-history_time_format: YYYY-MM-dd
+time_format: yyyy-MM-dd
+history_time_format: yyyy-MM-dd
 banned_message_base: |
   &cYou are banned from this server!&f
 
@@ -221,6 +221,7 @@ command:
     sqlexec_failure: '&cFailed to execute.'
 newline_as_new_message: true
 duration:
+  expired: expired
   forever: forever
   year: year
   years: years
