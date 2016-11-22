@@ -1,2 +1,2 @@
 # LiteBans
-Issue tracker / wiki for LiteBans
+Official issue tracker / wiki for LiteBans
