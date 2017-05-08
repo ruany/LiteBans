@@ -67,7 +67,7 @@ banned_message_appeal_message: '&3Pour plus d''informations: &n&5www.example.fr'
 banned_message_geoip_blacklist: |-
   &4Vous avez été banni de ce serveur !&f
 
-  Votre localisation est blacklisté:  $geoip
+  Votre localisation est blacklistée:  $geoip
 default_ban_reason: non-spécifiée
 default_mute_reason: Spam
 permission_error: '&cVous n''avez pas la permission !'
