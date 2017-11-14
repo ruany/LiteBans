@@ -51,7 +51,7 @@
 
 # https://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html
 # Example time format with hours + minutes:
-# time_format: 'dd/MM/yy HH:mm'
+# time_format: 'dd/MM/yyyy HH:mm'
 time_format: yyyy-MM-dd
 history_time_format: yyyy-MM-dd
 
